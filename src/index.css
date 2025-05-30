@@ -1,16 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+  --gray: #e5e7eb;
+  --dark-gray: #d1d5dc;
+}
 
 .font-inter {
   font-family: "Inter", sans-serif;
 }
-/* 
-h1:not(:first-child),
-h2:not(:first-child),
-h3:not(:first-child) {
-  margin-top: 1rem;
-} */
 
 h1,
 h2,
@@ -157,4 +155,40 @@ hr:last-child {
 
 .hljs-strong {
   font-weight: 700;
+}
+
+.tableWrapper {
+  margin: 1.5rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 0.5rem;
+  border-style: hidden;
+  overflow: hidden;
+  box-shadow: 0 0 0 3px var(--dark-gray);
+}
+
+table:first-child {
+  margin-top: 0;
+}
+
+table:last-child {
+  margin-bottom: 0;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 3px solid var(--dark-gray);
+}
+
+th {
+  background-color: var(--gray);
+}
+
+.resize-cursor {
+  cursor: ew-resize;
+  cursor: col-resize;
 }
