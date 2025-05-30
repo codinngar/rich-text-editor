@@ -1,7 +1,9 @@
 import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
 import CodeBlock from "@tiptap/extension-code-block";
+import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { Editor, EditorContent, useEditor } from "@tiptap/react";
+import { all, createLowlight } from "lowlight";
 import StarterKit from "@tiptap/starter-kit";
 import {
   AlignCenterIcon,
@@ -21,6 +23,8 @@ import {
   StrikeThroughIcon,
   UnOrderedListIcon,
 } from "./Icons";
+
+const lowlight = createLowlight(all);
 
 type MenuBarProps = {
   editor: Editor | null;
@@ -146,8 +150,8 @@ const RichTextEditor = () => {
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
-      CodeBlock.configure({
-        defaultLanguage: "java",
+      CodeBlockLowlight.configure({
+        lowlight,
       }),
     ],
   });
