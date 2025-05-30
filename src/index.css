@@ -28,9 +28,12 @@ h3 {
   font-size: 1.4rem;
 }
 
-ul,
-ol {
+ul {
   margin-left: 1.5em;
+}
+
+ol {
+  margin-left: 1.7em;
 }
 
 ul {

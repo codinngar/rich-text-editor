@@ -22,6 +22,9 @@ const RichTextEditor = () => {
     extensions: [
       StarterKit,
       Highlight,
+      TableRow,
+      TableHeader,
+      TableCell,
       TextAlign.configure({
         types: ["heading", "paragraph"],
       }),
@@ -31,9 +34,6 @@ const RichTextEditor = () => {
       Table.configure({
         resizable: true,
       }),
-      TableRow,
-      TableHeader,
-      TableCell,
     ],
   });
 

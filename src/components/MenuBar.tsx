@@ -17,6 +17,14 @@ import {
   StrikeThroughIcon,
   UnOrderedListIcon,
   TableIcon,
+  ColumnInsertLeftIcon,
+  ColumnInsertRightIcon,
+  ColumnRemove,
+  RowInsertTopIcon,
+  RowInsertBottomIcon,
+  RowRemoveIcon,
+  HeaderRowIcon,
+  HeaderColumnIcon,
 } from "./Icons";
 
 type MenuBarProps = {
@@ -47,7 +55,7 @@ const MenuBar = ({ editor }: MenuBarProps) => {
     {
       icon: <ParagraphIcon />,
       onClick: () => editor.chain().focus().setParagraph().run(),
-      isActive: editor.isActive("paragraph"),
+      // isActive: editor.isActive("paragraph"),
     },
     {
       icon: <BoldIcon />,
@@ -112,17 +120,45 @@ const MenuBar = ({ editor }: MenuBarProps) => {
     {
       icon: <TableIcon />,
       onClick: () =>
-        editor
-          .chain()
-          .focus()
-          .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
-          .run(),
-      isActive: editor.isActive("horizontal"),
+        editor.chain().focus().insertTable().run(),
+      isActive: editor.isActive("table"),
+    },
+    {
+      icon: <ColumnInsertLeftIcon />,
+      onClick: () => editor.chain().focus().addColumnBefore().run(),
+    },
+    {
+      icon: <ColumnInsertRightIcon />,
+      onClick: () => editor.chain().focus().addColumnAfter().run(),
+    },
+    {
+      icon: <ColumnRemove />,
+      onClick: () => editor.chain().focus().deleteColumn().run(),
+    },
+    {
+      icon: <RowInsertTopIcon />,
+      onClick: () => editor.chain().focus().addRowBefore().run(),
+    },
+    {
+      icon: <RowInsertBottomIcon />,
+      onClick: () => editor.chain().focus().addRowAfter().run(),
+    },
+    {
+      icon: <RowRemoveIcon />,
+      onClick: () => editor.chain().focus().deleteRow().run(),
+    },
+    {
+      icon: <HeaderRowIcon />,
+      onClick: () => editor.chain().focus().toggleHeaderRow().run(),
+    },
+    {
+      icon: <HeaderColumnIcon />,
+      onClick: () => editor.chain().focus().toggleHeaderColumn().run(),
     },
   ];
 
   return (
-    <div className="p-2 border-b-3 border-b-gray-200 flex flex-wrap justify-around items-center gap-1">
+    <div className="p-2 border-b-3 border-b-gray-200 flex flex-wrap justify-between gap-3">
       {options.map((option, index) => (
         <button
           key={index}
