@@ -6,6 +6,7 @@ import {
   AlignCenter,
   AlignLeft,
   AlignRight,
+  BlockQuote,
   Bold,
   Heading1,
   Heading2,
@@ -13,6 +14,7 @@ import {
   Highlighter,
   Italic,
   OrderedList,
+  Paragraph,
   StrikeThrough,
   UnOrderedList,
 } from "./Icons";
@@ -41,6 +43,11 @@ const MenuBar = ({ editor }: MenuBarProps) => {
       icon: <Heading3 />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
       isActive: editor.isActive("heading", { level: 3 }),
+    },
+    {
+      icon: <Paragraph />,
+      onClick: () => editor.chain().focus().setParagraph().run(),
+      isActive: editor.isActive("paragraph"),
     },
     {
       icon: <Bold />,
@@ -87,6 +94,11 @@ const MenuBar = ({ editor }: MenuBarProps) => {
       onClick: () => editor.chain().focus().toggleHighlight().run(),
       isActive: editor.isActive("highlight"),
     },
+    {
+      icon: <BlockQuote />,
+      onClick: () => editor.chain().focus().toggleBlockquote().run(),
+      isActive: editor.isActive("blockquote"),
+    },
   ];
 
   return (
@@ -108,7 +120,7 @@ const RichTextEditor = () => {
   const editor = useEditor({
     editorProps: {
       attributes: {
-        class: "p-4 outline-none font-inter",
+        class: "p-8 outline-none font-inter",
       },
     },
     extensions: [
