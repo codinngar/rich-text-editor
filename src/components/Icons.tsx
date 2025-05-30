@@ -1,4 +1,4 @@
-export const Heading1 = () => {
+export const Heading1Icon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ export const Heading1 = () => {
   );
 };
 
-export const Heading2 = () => {
+export const Heading2Icon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export const Heading2 = () => {
   );
 };
 
-export const Heading3 = () => {
+export const Heading3Icon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export const Heading3 = () => {
   );
 };
 
-export const Bold = () => {
+export const BoldIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ export const Bold = () => {
   );
 };
 
-export const Italic = () => {
+export const ItalicIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +123,7 @@ export const Italic = () => {
   );
 };
 
-export const StrikeThrough = () => {
+export const StrikeThroughIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@ export const StrikeThrough = () => {
   );
 };
 
-export const AlignLeft = () => {
+export const AlignLeftIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +166,7 @@ export const AlignLeft = () => {
   );
 };
 
-export const AlignCenter = () => {
+export const AlignCenterIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@ export const AlignCenter = () => {
   );
 };
 
-export const AlignRight = () => {
+export const AlignRightIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -210,7 +210,7 @@ export const AlignRight = () => {
   );
 };
 
-export const UnOrderedList = () => {
+export const UnOrderedListIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +235,7 @@ export const UnOrderedList = () => {
   );
 };
 
-export const OrderedList = () => {
+export const OrderedListIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -259,7 +259,7 @@ export const OrderedList = () => {
   );
 };
 
-export const Highlighter = () => {
+export const HighlighterIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +281,7 @@ export const Highlighter = () => {
   );
 };
 
-export const Paragraph = () => {
+export const ParagraphIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -305,7 +305,7 @@ export const Paragraph = () => {
   );
 };
 
-export const BlockQuote = () => {
+export const BlockQuoteIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -326,6 +326,50 @@ export const BlockQuote = () => {
       <path d="M21 7h-6" />
       <path d="M9 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2" />
       <path d="M3 9h1a1 1 0 1 1 -1 1v-2.5a2 2 0 0 1 2 -2" />
+    </svg>
+  );
+};
+
+export const CodeBlockIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-code"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M7 8l-4 4l4 4" />
+      <path d="M17 8l4 4l-4 4" />
+      <path d="M14 4l-4 16" />
+    </svg>
+  );
+};
+
+export const HorizontalLineIcon = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="icon icon-tabler icons-tabler-outline icon-tabler-line-dashed"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M5 12h2" />
+      <path d="M17 12h2" />
+      <path d="M11 12h2" />
     </svg>
   );
 };

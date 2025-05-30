@@ -1,22 +1,25 @@
 import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
+import CodeBlock from "@tiptap/extension-code-block";
 import { Editor, EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import {
-  AlignCenter,
-  AlignLeft,
-  AlignRight,
-  BlockQuote,
-  Bold,
-  Heading1,
-  Heading2,
-  Heading3,
-  Highlighter,
-  Italic,
-  OrderedList,
-  Paragraph,
-  StrikeThrough,
-  UnOrderedList,
+  AlignCenterIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
+  BlockQuoteIcon,
+  BoldIcon,
+  CodeBlockIcon,
+  Heading1Icon,
+  Heading2Icon,
+  Heading3Icon,
+  HighlighterIcon,
+  HorizontalLineIcon,
+  ItalicIcon,
+  OrderedListIcon,
+  ParagraphIcon,
+  StrikeThroughIcon,
+  UnOrderedListIcon,
 } from "./Icons";
 
 type MenuBarProps = {
@@ -30,74 +33,84 @@ const MenuBar = ({ editor }: MenuBarProps) => {
 
   const options = [
     {
-      icon: <Heading1 />,
+      icon: <Heading1Icon />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
       isActive: editor.isActive("heading", { level: 1 }),
     },
     {
-      icon: <Heading2 />,
+      icon: <Heading2Icon />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
       isActive: editor.isActive("heading", { level: 2 }),
     },
     {
-      icon: <Heading3 />,
+      icon: <Heading3Icon />,
       onClick: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
       isActive: editor.isActive("heading", { level: 3 }),
     },
     {
-      icon: <Paragraph />,
+      icon: <ParagraphIcon />,
       onClick: () => editor.chain().focus().setParagraph().run(),
       isActive: editor.isActive("paragraph"),
     },
     {
-      icon: <Bold />,
+      icon: <BoldIcon />,
       onClick: () => editor.chain().focus().toggleBold().run(),
       isActive: editor.isActive("bold"),
     },
     {
-      icon: <Italic />,
+      icon: <ItalicIcon />,
       onClick: () => editor.chain().focus().toggleItalic().run(),
       isActive: editor.isActive("italic"),
     },
     {
-      icon: <StrikeThrough />,
+      icon: <StrikeThroughIcon />,
       onClick: () => editor.chain().focus().toggleStrike().run(),
       isActive: editor.isActive("strike"),
     },
     {
-      icon: <AlignLeft />,
+      icon: <AlignLeftIcon />,
       onClick: () => editor.chain().focus().setTextAlign("left").run(),
       isActive: editor.isActive({ textAlign: "left" }),
     },
     {
-      icon: <AlignCenter />,
+      icon: <AlignCenterIcon />,
       onClick: () => editor.chain().focus().setTextAlign("center").run(),
       isActive: editor.isActive({ textAlign: "center" }),
     },
     {
-      icon: <AlignRight />,
+      icon: <AlignRightIcon />,
       onClick: () => editor.chain().focus().setTextAlign("right").run(),
       isActive: editor.isActive({ textAlign: "right" }),
     },
     {
-      icon: <UnOrderedList />,
+      icon: <UnOrderedListIcon />,
       onClick: () => editor.chain().focus().toggleBulletList().run(),
       isActive: editor.isActive("bulletList"),
     },
     {
-      icon: <OrderedList />,
+      icon: <OrderedListIcon />,
       onClick: () => editor.chain().focus().toggleOrderedList().run(),
       isActive: editor.isActive("orderedList"),
     },
     {
-      icon: <Highlighter />,
+      icon: <HighlighterIcon />,
       onClick: () => editor.chain().focus().toggleHighlight().run(),
       isActive: editor.isActive("highlight"),
     },
     {
-      icon: <BlockQuote />,
+      icon: <BlockQuoteIcon />,
       onClick: () => editor.chain().focus().toggleBlockquote().run(),
       isActive: editor.isActive("blockquote"),
+    },
+    {
+      icon: <CodeBlockIcon />,
+      onClick: () => editor.chain().focus().toggleCodeBlock().run(),
+      isActive: editor.isActive("codeBlock"),
+    },
+    {
+      icon: <HorizontalLineIcon />,
+      onClick: () => editor.chain().focus().setHorizontalRule().run(),
+      isActive: editor.isActive("horizontal"),
     },
   ];
 
@@ -107,7 +120,11 @@ const MenuBar = ({ editor }: MenuBarProps) => {
         <button
           key={index}
           onClick={option.onClick}
-          className={option.isActive ? "p-2 rounded-lg bg-gray-200 cursor-pointer" : "p-2 rounded-lg bg-transparent hover:bg-gray-100 cursor-pointer"}
+          className={
+            option.isActive
+              ? "p-2 rounded-lg bg-gray-200 cursor-pointer"
+              : "p-2 rounded-lg bg-transparent hover:bg-gray-100 cursor-pointer"
+          }
         >
           {option.icon}
         </button>
@@ -128,6 +145,9 @@ const RichTextEditor = () => {
       Highlight,
       TextAlign.configure({
         types: ["heading", "paragraph"],
+      }),
+      CodeBlock.configure({
+        defaultLanguage: "java",
       }),
     ],
   });
