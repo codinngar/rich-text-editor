@@ -1,6 +1,5 @@
 import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
-import CodeBlock from "@tiptap/extension-code-block";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { Editor, EditorContent, useEditor } from "@tiptap/react";
 import { all, createLowlight } from "lowlight";
@@ -29,6 +28,7 @@ const lowlight = createLowlight(all);
 type MenuBarProps = {
   editor: Editor | null;
 };
+
 
 const MenuBar = ({ editor }: MenuBarProps) => {
   if (!editor) {
