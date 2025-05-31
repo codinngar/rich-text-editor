@@ -9,40 +9,48 @@ import TableRow from "@tiptap/extension-table-row";
 import CodeBlockLowlight from "@tiptap/extension-code-block-lowlight";
 import { all, createLowlight } from "lowlight";
 import MenuBar from "./MenuBar";
-
 const lowlight = createLowlight(all);
 
-const RichTextEditor = () => {
-  const editor = useEditor({
-    editorProps: {
-      attributes: {
-        class: "p-8 outline-none font-inter overflow-hidden",
-      },
-    },
-    extensions: [
-      StarterKit,
-      Highlight,
-      TableRow,
-      TableHeader,
-      TableCell,
-      TextAlign.configure({
-        types: ["heading", "paragraph"],
-      }),
-      CodeBlockLowlight.configure({
-        lowlight,
-      }),
-      Table.configure({
-        resizable: true,
-      }),
-    ],
-  });
+interface RichTextEditorProps {
+    content: string;
+    onChange: (content: string) => void;
+}
 
-  return (
-    <div className="border-3 border-gray-200 rounded-2xl">
-      <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
-    </div>
-  );
+const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
+    const editor = useEditor({
+        content: content,
+        onUpdate: ({ editor }) => {
+            onChange(editor.getHTML());
+        },
+        editorProps: {
+            attributes: {
+                class: "p-8 outline-none font-inter overflow-hidden",
+            },
+        },
+        extensions: [
+            StarterKit,
+            Highlight,
+            TableRow,
+            TableHeader,
+            TableCell,
+            TextAlign.configure({
+                types: ["heading", "paragraph"],
+            }),
+            CodeBlockLowlight.configure({
+                lowlight,
+            }),
+            Table.configure({
+                resizable: true,
+            }),
+        ],
+    });
+
+    return (
+        <div className="border-3 border-gray-200 rounded-2xl">
+            <MenuBar editor={editor} />
+            <EditorContent editor={editor} />
+        </div>
+    );
 };
 
 export default RichTextEditor;
