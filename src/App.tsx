@@ -9,9 +9,8 @@ const App = () => {
     };
 
     return (
-        <div className="max-w-[700px] my-12 mx-auto">
+        <div className="p-8 max-w-[700px] my-12 mx-auto">
             <RichTextEditor content={content} onChange={onChange} />
-            <div dangerouslySetInnerHTML={{ __html: content }} />
         </div>
     );
 };
